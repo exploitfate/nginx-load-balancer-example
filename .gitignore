@@ -1,0 +1,34 @@
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# vagrant runtime
+/.vagrant
+
+docker/.env
+.git
+*.log
+
+/dev
+docker-compose.yml
+.env
+
+# deployer revision file
+REVISION
+
+node_modules
+package-lock.json
+.vscode
