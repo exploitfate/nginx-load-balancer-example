@@ -7,6 +7,8 @@ read -p "Domain: " NGINX_DOMAIN
 sudo apt update
 
 # install nginx and php
+sudo apt install -y nginx memcached php-fpm php-cli php-curl php-xml php-mbstring php-intl php-zip
+
 sudo apt install -y nginx php-fpm php-cli memcached
 
 # Increase www-data user open file limits
