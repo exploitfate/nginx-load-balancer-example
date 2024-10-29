@@ -124,10 +124,11 @@ fastcgi_buffers 8 64k;
 ## Set upstream backends
 echo '
 upstream backend {
-    server ip-172-31-40-1.us-east-2.compute.internal;
-    server ip-172-31-44-2.us-east-2.compute.internal;
-    server ip-172-31-35-3.us-east-2.compute.internal;
-    server ip-172-31-38-4.us-east-2.compute.internal;
+    server 127.0.0.1;
+#    server ip-172-31-40-1.us-east-2.compute.internal;
+#    server ip-172-31-44-2.us-east-2.compute.internal;
+#    server ip-172-31-35-3.us-east-2.compute.internal;
+#    server ip-172-31-38-4.us-east-2.compute.internal;
 }
 
 ' | sudo tee /etc/nginx/conf.d/api.conf > /dev/null
