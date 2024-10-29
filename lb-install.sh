@@ -9,6 +9,10 @@ sudo apt update
 # install nginx and certbot
 sudo apt install -y nginx certbot python3-certbot-dns-cloudflare python3-certbot-nginx
 
+# Request lets encrypt cert for domain and www subdomain
+sudo certbot certonly --dry-run --nginx --email admin@$NGINX_DOMAIN -d $NGINX_DOMAIN -d www.$NGINX_DOMAIN && sudo certbot certonly --nginx --email admin@$NGINX_DOMAIN -d $NGINX_DOMAIN -d sub.$NGINX_DOMAIN
+
+
 # Create certbot deploy renewal hook
 echo '#!/bin/bash
 
@@ -16,9 +20,6 @@ echo '#!/bin/bash
 ' | sudo tee /etc/letsencrypt/renewal-hooks/deploy/nginx.sh > /dev/null
 
 sudo chmod +x /etc/letsencrypt/renewal-hooks/deploy/nginx.sh
-
-# Request lets encrypt cert for domain and www subdomain
-sudo certbot certonly --dry-run --nginx --email admin@$NGINX_DOMAIN -d $NGINX_DOMAIN -d www.$NGINX_DOMAIN && sudo certbot certonly --nginx --email admin@$NGINX_DOMAIN -d $NGINX_DOMAIN -d sub.$NGINX_DOMAIN
 
 ## Alternate: New cert chain and cert type
 # sudo apt-get remove -y certbot
